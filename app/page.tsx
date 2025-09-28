@@ -1,15 +1,48 @@
-import { Button } from '@/components/ui/button'
-import React from 'react'
+import CompanionCard from '@/components/CompanionCard';
+import CompanionList from '@/components/CompanionsList';
+import Cta from '@/components/CTA';
+import { recentSessions } from '@/constants';
 
 const Page = () => {
   return (
-    <div>
-      <h1 className='text-2xl underline'>Welcome to SaaS app</h1>
-      <Button>
-        Get Started
-      </Button>
-    </div>
-  )
-}
+    <main>
+      <h1>Popular Companions</h1>
+      <section className="home-section">
+        <CompanionCard
+          id="123"
+          name="Neura the Brainy Explorer"
+          topic="Neural network of the brain"
+          subject="science"
+          duration={45}
+          color="#ffda6e"
+        />
+        <CompanionCard
+          id="234"
+          name="Neura the Brainy Explorer"
+          topic="Neural network of the brain"
+          subject="science"
+          duration={45}
+          color="#e5d0ff"
+        />
+        <CompanionCard
+          id="345"
+          name="Neura the Brainy Explorer"
+          topic="Neural network of the brain"
+          subject="science"
+          duration={45}
+          color="#BDE7FF"
+        />
+      </section>
+      <section className="home-section">
+        <CompanionList 
+        title="Recently completed sessions"
+        companions={recentSessions}
+        classNames="w-2/3 max-lg:w-full"
+        />
+        <Cta />
+      </section>
+    </main>
+  );
+};
 
-export default Page
+export default Page;
